@@ -7,6 +7,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class DigitalBooking {
 
 	public static void main(String[] args) {
+
+		PropertyConfigurator.configure("log4j.properties");
 		SpringApplication.run(DigitalBooking.class, args);
 	}
 
