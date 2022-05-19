@@ -1,12 +1,11 @@
 package com.proyectointegrador.digitalbooking.controllers;
 
 import com.proyectointegrador.digitalbooking.dto.CategoryDTO;
+import com.proyectointegrador.digitalbooking.service.ICategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import service.ICategoryService;
-
 import java.util.Collection;
 
 @CrossOrigin(origins = "*")
@@ -24,7 +23,7 @@ public class ApiController {
     }
 
     /*@GetMapping("/{id}")
-    public CategoryDTO getCategory(@PathVariable Float id){
+    public CategoryDTO findCategory(@PathVariable Float id){
         return categoryService.findCategory(id);
     }*/
 
