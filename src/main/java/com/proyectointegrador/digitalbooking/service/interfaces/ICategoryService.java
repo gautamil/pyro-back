@@ -1,4 +1,4 @@
-package com.proyectointegrador.digitalbooking.service;
+package com.proyectointegrador.digitalbooking.service.interfaces;
 
 import com.proyectointegrador.digitalbooking.dto.CategoryDTO;
 
@@ -8,6 +8,6 @@ public interface ICategoryService {
     CategoryDTO createCategory(CategoryDTO categoryDTO);
     //CategoryDTO findCategory(Long id);
     void editCategory(CategoryDTO categoryDTO);
-    void removeCategory(Float id);
+    void removeCategory(Integer id);
     Set<CategoryDTO> getCategories();
 }

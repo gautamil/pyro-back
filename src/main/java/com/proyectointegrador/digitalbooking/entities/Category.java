@@ -5,16 +5,15 @@ import lombok.Setter;
 
 import javax.persistence.*;
 
-@Entity
-@Table(name = "categories")
 @Getter
 @Setter
+@Entity(name = "categories")
 public class Category {
 
     @Id
     @SequenceGenerator(name="category_sequence", sequenceName = "category_sequence", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "category_sequence")
-    private Float id;
+    private Integer id;
 
     private String title;
     private String description;
@@ -28,7 +27,5 @@ public class Category {
         this.description = description;
         this.imgUrl = imgUrl;
     }
-
-
 
 }

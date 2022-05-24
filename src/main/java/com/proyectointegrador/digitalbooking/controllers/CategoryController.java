@@ -1,7 +1,7 @@
 package com.proyectointegrador.digitalbooking.controllers;
 
 import com.proyectointegrador.digitalbooking.dto.CategoryDTO;
-import com.proyectointegrador.digitalbooking.service.ICategoryService;
+import com.proyectointegrador.digitalbooking.service.interfaces.ICategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,21 +11,16 @@ import java.util.Collection;
 @CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/categories")
-public class ApiController {
+public class CategoryController {
 
     @Autowired
     ICategoryService categoryService;
 
     @PostMapping
-    public ResponseEntity createCategory(@RequestBody CategoryDTO categoryDTO){
+    public ResponseEntity<?> createCategory(@RequestBody CategoryDTO categoryDTO){
         categoryService.createCategory(categoryDTO);
         return ResponseEntity.status(HttpStatus.CREATED).body("Category created");
     }
-
-    /*@GetMapping("/{id}")
-    public CategoryDTO findCategory(@PathVariable Float id){
-        return categoryService.findCategory(id);
-    }*/
 
     @PutMapping
     public ResponseEntity<?> editCategory(@RequestBody CategoryDTO categoryDTO){
@@ -34,7 +29,7 @@ public class ApiController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> removeCategory(@PathVariable Float id){
+    public ResponseEntity<?> removeCategory(@PathVariable Integer id){
         categoryService.removeCategory(id);
         return ResponseEntity.status(HttpStatus.CREATED).body("Category deleted");
     }

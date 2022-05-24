@@ -1,9 +1,10 @@
-package com.proyectointegrador.digitalbooking.service;
+package com.proyectointegrador.digitalbooking.service.impl;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.proyectointegrador.digitalbooking.dto.CategoryDTO;
 import com.proyectointegrador.digitalbooking.entities.Category;
 import com.proyectointegrador.digitalbooking.repository.ICategoryRepository;
+import com.proyectointegrador.digitalbooking.service.interfaces.ICategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,7 +13,7 @@ import java.util.List;
 import java.util.Set;
 
 @Service
-public class CategoryService implements ICategoryService{
+public class CategoryService implements ICategoryService {
 
     @Autowired
     private ICategoryRepository categoryRepository;
@@ -31,24 +32,13 @@ public class CategoryService implements ICategoryService{
         return categoryDTO;
     }
 
-    /*@Override
-    public CategoryDTO findCategory(Float id){
-        Optional<Category> category =  categoryRepository.findById(id);
-        CategoryDTO categoryDTO = null;
-        if(category.isPresent()){
-            categoryDTO = mapper.convertValue(category, CategoryDTO.class);
-        }
-        return categoryDTO;
-    }
-    */
-
     @Override
     public void editCategory(CategoryDTO categoryDTO) {
         saveCategory(categoryDTO);
     }
 
     @Override
-    public void removeCategory(Float id) {
+    public void removeCategory(Integer id) {
         categoryRepository.deleteById(id);
     }
 
